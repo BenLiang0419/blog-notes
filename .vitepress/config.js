@@ -1,5 +1,5 @@
 const getPages = require("./utils/pages");
-const env = process.env.NODE_ENV === "development" ? "" : "/blog"
+const env = process.env.NODE_ENV === "development" ? "" : "/something-someblog"
 
 async function getConfig() {
   let config = {
