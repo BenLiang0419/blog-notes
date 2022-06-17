@@ -24,7 +24,6 @@
     </ul>
     <Content />
     <NextAndPrevLinks />
-    <PageEdit />
     <slot name="bottom" />
   </div>
   <!-- 只想点击背景才关闭 请使用 .self 修饰符 -->
@@ -35,11 +34,10 @@
 
 <script>
 import NextAndPrevLinks from "./NextAndPrevLinks.vue";
-import PageEdit from "./PageEdit.vue";
 import { usePageData } from "vitepress";
 import { onMounted, reactive } from "vue";
 export default {
-  components: { NextAndPrevLinks, PageEdit },
+  components: { NextAndPrevLinks },
   setup() {
     const pageData = usePageData();
     return {
@@ -136,8 +134,8 @@ export default {
 </script>
 
 <style>
- img{
-    cursor: zoom-in;
+img {
+  cursor: zoom-in;
 }
 .imgBox {
   width: 100%;
@@ -176,12 +174,12 @@ export default {
 .content img {
   max-width: 100%;
 }
-.content>div> p> img {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+.content > div > p > img {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   max-width: 100%;
-      display: block;
-    margin: 0 auto;
-    border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
 }
 /*
   .content div > h1:first-child, .content div > h2:first-child {

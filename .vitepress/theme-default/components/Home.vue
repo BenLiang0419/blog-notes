@@ -1,40 +1,39 @@
 <template>
   <div>
-      <a
-    v-show="!article.frontMatter.home"
-    :href="base + article.regularPath || ''"
-    v-for="(article, index) in dynamicPage.currentData"
-    :key="index"
-    class="article"
-  >
-    <div class="article-header">
-      <div class="title">
-        {{ article.frontMatter.title || "" }}
+    <a
+      v-show="!article.frontMatter.home"
+      :href="base + article.regularPath || ''"
+      v-for="(article, index) in dynamicPage.currentData"
+      :key="index"
+      class="article"
+    >
+      <div class="article-header">
+        <div class="title">
+          {{ article.frontMatter.title || "" }}
+        </div>
+        <time :datetime="article.frontMatter.date" class="time">
+          {{ article.frontMatter.date || "" }}
+        </time>
       </div>
-      <time :datetime="article.frontMatter.date" class="time">
-        {{ article.frontMatter.date || "" }}
-      </time>
-    </div>
 
-    <div class="line"></div>
-    <p class="describe">
-      {{ article.frontMatter.describe || "" }}
-    </p>
-  </a>
-  <div class="paging">
-    <div
-      class="prev"
-      v-if="initPage.page !== 0"
-      @click="getChangePage(-1)"
-    ></div>
-    <span>{{ dynamicPage.totalPages }} - {{ initPage.page + 1 }}</span>
-    <div
-      class="next"
-      v-if="initPage.page + 1 !== dynamicPage.totalPages"
-      @click="getChangePage(1)"
-    ></div>
-  </div>
-  <PageEdit />
+      <div class="line"></div>
+      <p class="describe">
+        {{ article.frontMatter.describe || "" }}
+      </p>
+    </a>
+    <div class="paging">
+      <div
+        class="prev"
+        v-if="initPage.page !== 0"
+        @click="getChangePage(-1)"
+      ></div>
+      <span>{{ dynamicPage.totalPages }} - {{ initPage.page + 1 }}</span>
+      <div
+        class="next"
+        v-if="initPage.page + 1 !== dynamicPage.totalPages"
+        @click="getChangePage(1)"
+      ></div>
+    </div>
   </div>
 </template>
 
@@ -44,12 +43,10 @@ import NavBarLink from "./NavBarLink.vue";
 import { withBase, parseMarkdownList } from "../utils";
 import { usePageData, useSiteData } from "vitepress";
 import { base } from "../../build";
-import PageEdit from "./PageEdit.vue";
 
 export default defineComponent({
   components: {
     NavBarLink,
-    PageEdit,
   },
   setup() {
     const pageData = usePageData();
@@ -118,12 +115,11 @@ export default defineComponent({
       initPage,
       siteDescription,
     };
-  }
+  },
 });
 </script>
 
 <style scoped>
-
 .prev {
   background-image: url("./icons/prev.png");
   background-repeat: no-repeat;

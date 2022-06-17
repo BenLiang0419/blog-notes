@@ -1,7 +1,7 @@
 ## BLOG
 
 
-[GUANKAN](https://benliang0419.github.io/something-someblog/)
+[GUANKAN](https://benliang0419.github.io/blog-notes/)
 
 
 
